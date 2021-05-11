@@ -38,6 +38,14 @@ namespace lab7_8.Steps
             request.AddParameter("query", query);
         }
 
+        [Given(@"the page is (.*)")]
+        public void GivenThePageIs(int page)
+        {
+            AddApiKey();
+            AddLanguage();
+            AddPage(page);
+   
+        }
 
         [When(@"the request is executed")]
         public void WhenTheRequestIsExecuted()
@@ -57,5 +65,12 @@ namespace lab7_8.Steps
         {
             searchResult.total_results.Should().BeGreaterThan(p0);
         }
+
+        [Then(@"the page is (.*)")]
+        public void ThenThePageIs(int page)
+        {
+            searchResult.page.Should().Be(page);
+        }
+
     }
 }

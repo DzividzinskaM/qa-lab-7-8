@@ -28,12 +28,20 @@ namespace lab7_8.Steps
             request = new RestRequest(url, Method.POST);
         }
 
-        [Given(@"the tv ID id (.*)")]
+        [Given(@"the delete rate url is ""(.*)""")]
+        public void GivenTheDeleteRateUrlIs(string url)
+        {
+            request = new RestRequest(url, Method.DELETE);
+        }
+
+
+        [Given(@"the tv ID is (.*)")]
         public void GivenTheTvIDId(int id)
         {
             //AddApiKey();
             //AddGuestSessionID();
             //request.AddParameter("guest_session_id", "3e506d399bb76ffa3de9df11230b95c5");
+            request.AddUrlSegment("tv_id", id);
             request.AddParameter("tv_id", id);
         }
 
@@ -43,6 +51,7 @@ namespace lab7_8.Steps
             request.AddJsonBody(new Rating { value = rate });
         }
 
+        [When(@"the delete rate request is executed")]
         [When(@"the post rate request is executed")]
         public void WhenThePostRateRequestIsExecuted()
         {
@@ -55,6 +64,13 @@ namespace lab7_8.Steps
         {
             response.StatusCode.Should().Be(HttpStatusCode.Created);
         }
+
+        [Then(@"the status code is OK")]
+        public void ThenTheStatusCodeIsOK()
+        {
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+        }
+
 
         [Then(@"the response property status_code is equal (.*)")]
         public void ThenTheResponsePropertyStatus_CodeIsEqual(int code)
