@@ -115,7 +115,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("the status code is Create", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 11
- testRunner.And("the response property status_code is equal 12", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the response property status_code is equal 15", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
