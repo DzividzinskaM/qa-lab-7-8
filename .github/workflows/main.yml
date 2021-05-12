@@ -19,7 +19,7 @@ jobs:
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
     - name: Install dependencies
-      run: dotnet restore -r lab7_8/lab7_8/lab7_8/lab7_8.csproj
+      run: dotnet restore ./lab7_8/lab7_8/lab7_8/lab7_8.csproj
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
