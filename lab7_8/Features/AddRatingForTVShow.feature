@@ -8,4 +8,4 @@ Scenario: Rate TV show
 	And the value of rate is 9.5
 	When the post rate request is executed
 	Then the status code is Create
-	And the response property status_code is equal 12
+	And the response property status_code is equal 1
