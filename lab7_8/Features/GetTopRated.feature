@@ -7,4 +7,4 @@ Scenario: Get top of rate TV shows
 	And the page is 2
 	When the request is executed
 	Then the search status code is OK
-	And the page is 1
+	And the page is 2
